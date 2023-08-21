@@ -1,16 +1,13 @@
-/*文字式のフォント*/
 .literal {
 	font-style: italic;
 	font-family: "Times New Roman";
 	font-weight: bold;
 }
 
-/*指数*/
 .num {
 	font-family: "Times New Roman";
 }
 
-/*いつ使う？*/
 .head {
 	background: linear-gradient(transparent 60%, #ffd8d8 30%);
 	width: 184px;
@@ -18,7 +15,6 @@
 	display:inline-block;
 }
 
-/*ここで学べること*/
 .contents {
 	list-style: none;
 	width: 90%;
@@ -34,7 +30,6 @@
 	border: 1px solid #ccc;
 }
 
-/*学べる単元の開閉*/
 .unit {
 	position: relative;
 	cursor: pointer;
@@ -72,7 +67,6 @@
 	transform: rotate(-45deg);
 }
 
-/*単元の説明*/
 .explanation {
 	display: none;
 	margin: 0;
@@ -84,7 +78,6 @@
 	margin-top: 32px;
 }
 
-/*スタートボタン*/
 .start a {
 	background: #65564d;
 	border-radius: 50px;
