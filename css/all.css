@@ -24,7 +24,6 @@
 	color: black;
 }
 
-/*メニュー ホバー時の下線*/
 .menu li a:after {
 	position: absolute;
 	bottom: -3px;
@@ -61,7 +60,6 @@ p {
 	margin: 8px 0;
 }
 
-/*遊び方*/
 .howto {
 	border: dashed 3px #65564d;
 	margin: 16px auto;
