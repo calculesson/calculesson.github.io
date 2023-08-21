@@ -6,14 +6,12 @@ h1 {
 	text-align: center;
 }
 
-/*文字式*/
 .literal {
 	font-style: italic;
 	font-family: "Times New Roman";
 	font-weight: bold;
 }
 
-/*時間*/
 .timer {
 	left: 8%;
 	top: 0;
@@ -28,14 +26,12 @@ h1 {
 	box-shadow: 0 3px 5px rgba(0, 0, 0, 0.22);
 }
 
-/*問題文*/
 .question {
 	text-align: center;
 	font-size: 32px;
 	padding-top: 2em;
 }
 
-/*正解*/
 .correct {
 	position: absolute;
 	top: 0px;
@@ -52,7 +48,6 @@ h1 {
 	z-index: 1;
 }
 
-/*マル*/
 .circle{
 	width: 320px;
 	height: 320px;
@@ -61,7 +56,6 @@ h1 {
 	border: solid 30px #46dec0;
 }
 
-/*不正解*/
 .incorrect {
 	position: absolute;
 	top: 0px;
@@ -78,7 +72,6 @@ h1 {
 	z-index: 1;
 }
 
-/*バツ*/
 .cross {
 	position: relative;
 	width: 30px;
@@ -103,18 +96,15 @@ h1 {
 	transform: translate(-50%,-50%) rotate(-45deg);
 }
 
-/*マルバツの表示*/
 .show {
 	visibility: visible;
 	opacity: 0.8;
 }
 
-/*非表示*/
 .hide {
 	display: none;
 }
 
-/*答えを入力*/
 .text {
 	position: relative;
 	width: 80%;
@@ -142,7 +132,6 @@ h1 {
 	background-color: transparent;
 }
 
-/*フォーカス時の下線*/
 .response ~ .focus-line {
 	position: absolute;
 	bottom: 0;
@@ -178,7 +167,6 @@ h1 {
 	color: #da3c41;
 }
 
-/*ボタン（次へ、TOPへ）*/
 .button a {
 	background: #65564d;
 	border-radius: 50px;
@@ -195,8 +183,6 @@ h1 {
 	margin: 16px;
 }
 
-/*メモ欄*/
-
 textarea {
 	display: block;
 	margin: auto;
@@ -208,18 +194,14 @@ textarea {
 	font-style: italic;
 }
 
-/*結果*/
 .result {
 	display: none;
 }
 
-/*結果表示*/
 .open {
 	display: block;
 }
 
-
-/*結果表*/
 .qa_list {
 	width: 100%;
 	text-align: center;
@@ -233,28 +215,22 @@ textarea {
 	color: white;
 }
 
-/*奇数行*/
 .qa_list tr:nth-child(odd) {
 	background-color: white;
 }
 
-/*偶数行*/
 .qa_list tr:nth-child(even) {
 	background-color: #f6f6f6;
 }
 
-/*一列目*/
 .qa_list tr td:nth-of-type(1) {
 	background-color: #added4;
 }
 
-/*二列目*/
 .qa_list tr td:nth-of-type(2) {
 	text-align: left;
 }
 
-
-/*結果統計*/
 .total {
 	padding: 8px 20%;
 	margin: 2em 10%;
