@@ -11,12 +11,10 @@
 	color: white;
 }
 
-/*奇数行*/
 .tbl tr:nth-child(odd) {
 	background-color: white;
 }
 
-/*偶数行*/
 .tbl tr:nth-child(even) {
 	background-color: #f6f6f6;
 }
