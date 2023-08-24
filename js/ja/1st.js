@@ -83,10 +83,11 @@ function startPoint(e){
 }
  
 function movePoint(e){
-  if(e.buttons === 1 || e.witch === 1 || e.type == 'touchmove'){
+  if(e.buttons === 1 || e.which === 1 || e.type == 'touchmove'){
     Xpoint = e.layerX;
     Ypoint = e.layerY;
     moveflg = 1;
+    e.preventDefault();
      
     ctx.lineTo(Xpoint, Ypoint);
     ctx.lineCap = "round";
