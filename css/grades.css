@@ -1,0 +1,98 @@
+/*文字式のフォント*/
+.literal {
+	font-style: italic;
+	font-family: "Times New Roman";
+	font-weight: bold;
+}
+
+/*指数*/
+.num {
+	font-family: "Times New Roman";
+}
+
+/*いつ使う？*/
+.head {
+	background: linear-gradient(transparent 60%, #ffd8d8 30%);
+	width: 184px;
+	margin-top: 8px;
+	display:inline-block;
+}
+
+/*ここで学べること*/
+.contents {
+	list-style: none;
+	width: 90%;
+	max-width: 900px;
+	margin:0 auto;
+}
+
+.contents li {
+	margin: 10px 0;
+}
+
+.contents section {
+	border: 1px solid #ccc;
+}
+
+/*学べる単元の開閉*/
+.unit {
+	position: relative;
+	cursor: pointer;
+	padding: 0 45px;
+	transition: all 0.5s ease;
+	font-weight: bold;
+}
+
+.unit::before,
+.unit::after{
+	position: absolute;
+	content:'';
+	height: 2px;
+	width: 15px;
+	background-color: #716056;   
+}
+
+.unit::before{
+	top:50%;
+	left: 15px;
+	transform: rotate(0deg);
+}
+
+.unit::after{
+	top:50%;
+	left: 15px;
+	transform: rotate(90deg);
+}
+
+.unit.close::before{
+	transform: rotate(45deg);
+}
+
+.unit.close::after{
+	transform: rotate(-45deg);
+}
+
+/*単元の説明*/
+.explanation {
+	display: none;
+	margin: 0;
+	padding: 0 3%;
+	text-align: left;
+}
+
+.start {
+	margin-top: 32px;
+}
+
+/*スタートボタン*/
+.start a {
+	background: #65564d;
+	border-radius: 50px;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	margin: 0 auto;
+	max-width: 260px;
+	padding: 10px 25px;
+	color: #f0faf8;
+}
