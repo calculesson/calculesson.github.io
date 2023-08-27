@@ -295,7 +295,7 @@ while(Math.abs(a_2) < 2 || d_2 == 0 ) {
 	var d_2 = Math.floor(Math.random() * 19)-9;
 }
 
-while(Math.abs(b_2) < 2 || Math.abs(c_2) < 2 || b_2 == c_2) { 
+while(Math.abs(b_2) < 2 || Math.abs(c_2) < 2 || Math.abs(b_2) == Math.abs(c_2)) { 
 	var b_2 = Math.floor(Math.random() * 19)-9;
 	var c_2 = Math.floor(Math.random() * 19)-9;
 }
