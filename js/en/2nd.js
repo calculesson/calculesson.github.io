@@ -17,16 +17,14 @@ q_time = setInterval (watch, 1000);
 
 function GethashID (hashIDName){
 	if(hashIDName){
-		//タブ設定
-		$('.tab li').find('a').each(function() { //タブ内のaタグ全てを取得
-			var idName = $(this).attr('href'); //タブ内のaタグのリンク名（例）#lunchの値を取得	
-			if(idName == hashIDName){ //リンク元の指定されたURLのハッシュタグ（例）http://example.com/#lunch←この#の値とタブ内のリンク名（例）#lunchが同じかをチェック
-				var parentElm = $(this).parent(); //タブ内のaタグの親要素（li）を取得
-				$('.tab li').removeClass("active"); //タブ内のliについているactiveクラスを取り除き
-				$(parentElm).addClass("active"); //リンク元の指定されたURLのハッシュタグとタブ内のリンク名が同じであれば、liにactiveクラスを追加
-				//表示させるエリア設定
-				$(".notes").removeClass("is-active"); //もともとついているis-activeクラスを取り除き
-				$(hashIDName).addClass("is-active"); //表示させたいエリアのタブリンク名をクリックしたら、表示エリアにis-activeクラスを追加	
+		$('.tab li').find('a').each(function() {
+			var idName = $(this).attr('href');
+			if(idName == hashIDName){
+				var parentElm = $(this).parent(); 
+				$('.tab li').removeClass("active");
+				$(parentElm).addClass("active");
+				$(".notes").removeClass("is-active"); 
+				$(hashIDName).addClass("is-active"); 
 			}
 		});
 	}
@@ -34,16 +32,16 @@ function GethashID (hashIDName){
 
 //タブをクリックしたら
 $('.tab a').on('click', function() {
-	var idName = $(this).attr('href'); //タブ内のリンク名を取得	
-	GethashID (idName);//設定したタブの読み込みと
-	return false;//aタグを無効にする
+	var idName = $(this).attr('href');
+	GethashID (idName);
+	return false;
 });
 
 $(window).on('load', function () {
-    $('.tab li:first-child').addClass("active"); //最初のliにactiveクラスを追加
-    $('#hand').addClass("is-active"); //最初の.areaにis-activeクラスを追加
-  var hashName = location.hash; //リンク元の指定されたURLのハッシュタグを取得
-  GethashID (hashName);//設定したタブの読み込み
+    $('.tab li:first-child').addClass("active");
+    $('#hand').addClass("is-active");
+  var hashName = location.hash;
+  GethashID (hashName);
 });
 
 var mamHandwritten1=new TMamHandwritten("canvas","reset");
@@ -62,20 +60,17 @@ function TMamHandwritten(canvas,reset){
   this.canvas=canvas;
   this.reset=reset;
   this.isMouseDown=false;
-  //マウス、タップの座標
   this.position=[];
   this.position.x=0;
   this.position.y=0;
   this.position.px=0;
   this.position.py=0;
-  //横比率,縦比率
   this.rate=[]; this.rate.x=0; this.rate.y=0;
   this.can=null;
   this.ctx=null;
   this.clearButton=null;
   window.addEventListener("DOMContentLoaded",function(){
     this.can=document.getElementById(this.canvas);
-    //イベントの設定
     this.can.addEventListener("touchstart",this.onDown.bind(this),{passive: false});
     this.can.addEventListener("touchmove",this.onMove.bind(this),{passive: false});
     this.can.addEventListener("touchend",this.onUp.bind(this));
@@ -84,7 +79,6 @@ function TMamHandwritten(canvas,reset){
     this.can.addEventListener("mouseup",this.onMouseUp.bind(this));
     window.addEventListener("mousemove",this.stopShake.bind(this));
     this.ctx=this.can.getContext("2d");
-    //クリアボタンの設定
     if(document.getElementById(this.reset)){
       this.clearButton=document.getElementById(this.reset);
       this.clearButton.addEventListener("click",function(){
@@ -104,13 +98,10 @@ function TMamHandwritten(canvas,reset){
     document.head.appendChild(style);
     style.sheet.insertRule('canvas#'+this.canvas+'{-ms-touch-action:none;touch-action:none;}',0);
     let s=window.getComputedStyle(this.can);
-    //canvas.widthとcanvas.style.widthの比率を取得する
     this.rate.x=parseInt(this.can.width)/parseInt(w);
-    //canvas.heightとcanvas.style.heightの比率を取得する
     this.rate.y=parseInt(this.can.height)/parseInt(h);
   }.bind(this));
 
-  //TouchStart時
   this.onDown=function(event){
     this.isMouseDown=true;
     this.position.px=event.touches[0].pageX-event.target.getBoundingClientRect().left-this.getScrollPosition().x;
@@ -121,7 +112,7 @@ function TMamHandwritten(canvas,reset){
     event.preventDefault();
     event.stopPropagation();
   }
-  //TouchMove時
+
   this.onMove=function(event){
     if(this.isMouseDown){
       this.position.x=event.touches[0].pageX-event.target.getBoundingClientRect().left-this.getScrollPosition().x;
@@ -132,7 +123,7 @@ function TMamHandwritten(canvas,reset){
       event.stopPropagation();
     };
   }
-  //TouchEnd時
+
   this.onUp=function(event){
     this.isMouseDown=false;
     event.stopPropagation();
@@ -144,7 +135,7 @@ function TMamHandwritten(canvas,reset){
 	temp = [];
     }, 0);
   }
-  //MouseDown時
+
   this.onMouseDown=function(event){
     this.position.px=event.clientX-event.target.getBoundingClientRect().left;
     this.position.py=event.clientY-event.target.getBoundingClientRect().top ;
@@ -154,7 +145,7 @@ function TMamHandwritten(canvas,reset){
     this.isMouseDown=true;
     event.stopPropagation();
   }
-  //MouseMove時
+
   this.onMouseMove=function(event){
     if(this.isMouseDown){
       this.position.x=event.clientX-event.target.getBoundingClientRect().left;
@@ -165,7 +156,7 @@ function TMamHandwritten(canvas,reset){
       event.stopPropagation();
     }
   }
-  //MouseUp時
+
   this.onMouseUp=function(event){
     this.isMouseDown=false;
     event.stopPropagation();
@@ -199,7 +190,7 @@ ctx.beginPath();
     ctx.lineTo(this.position.x*this.rate.x,this.position.y*this.rate.y);
     ctx.stroke();
   }
-  //スクロール位置を取得する
+
   this.getScrollPosition=function(){
     return {
       "x":document.documentElement.scrollLeft || document.body.scrollLeft,
@@ -294,7 +285,7 @@ while(Math.abs(a_2) < 2 || d_2 == 0 ) {
 	var d_2 = Math.floor(Math.random() * 19)-9;
 }
 
-while(Math.abs(b_2) < 2 || Math.abs(c_2) < 2 || b_2 == c_2) { 
+while(Math.abs(b_2) < 2 || Math.abs(c_2) < 2 || Math.abs(b_2) == Math.abs(c_2)) { 
 	var b_2 = Math.floor(Math.random() * 19)-9;
 	var c_2 = Math.floor(Math.random() * 19)-9;
 }
