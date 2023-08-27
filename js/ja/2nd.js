@@ -334,9 +334,9 @@ var b_3 = 0;
 var c_3 = 0;
 
 while (a_3 == c_3 || a_3 == d_3 || c_3 == d_3 || Math.abs(b_3) < 2) {
-	var a_3 = Math.floor(Math.random() * 3)+2;
+	var a_3 = Math.floor(Math.random() * 4)+2;
 	var b_3 = (Math.floor(Math.random() * 5)+2)*-1;
-	var c_3 = Math.floor(Math.random() * 3)+2;
+	var c_3 = Math.floor(Math.random() * 4)+2;
 	var d_3 = Math.floor(Math.random() * 5)+2;
 }
 
@@ -359,9 +359,9 @@ var b_4 = 0;
 var c_4 = 0;
 
 while (a_4 == c_4 || a_4 == d_4 || c_4 == d_4 || Math.abs(b_4) < 2) {
-	var a_4 = Math.floor(Math.random() * 3)+2;
+	var a_4 = Math.floor(Math.random() * 4)+2;
 	var b_4 = (Math.floor(Math.random() * 5)+2)*-1;
-	var c_4 = Math.floor(Math.random() * 3)+2;
+	var c_4 = Math.floor(Math.random() * 4)+2;
 	var d_4 = Math.floor(Math.random() * 5)+2;
 }
 
@@ -373,9 +373,11 @@ const q4 = a_4+"<span class='literal'>x</span>"+b_4+"<span class='literal'>y</sp
 
 
 //問題5
-var x_5 = Math.floor(Math.random() * 19) -9;
+var x_5 = Math.floor(Math.random() * 19) -9,
+    a_5 = 0,
+    b_5 = 0;
 
-while (a_5 == b_5) {
+while (a_5 == b_5 || Math.abs(a_5) < 2 || Math.abs(b_5) < 2) {
 	var a_5 = Math.floor(Math.random() * 19) -9;
 	var b_5 = Math.floor(Math.random() * 19) -9;
 }
