@@ -359,10 +359,10 @@ var b_4 = 0;
 var c_4 = 0;
 
 while (a_4 == c_4 || a_4 == d_4 || c_4 == d_4 || Math.abs(b_4) < 2) {
-	var a_4 = Math.floor(Math.random() * 8)+2;
-	var b_4 = (Math.floor(Math.random() * 8)+2)*-1;
-	var c_4 = Math.floor(Math.random() * 8)+2;
-	var d_4 = Math.floor(Math.random() * 8)+2;
+	var a_4 = Math.floor(Math.random() * 3)+2;
+	var b_4 = (Math.floor(Math.random() * 5)+2)*-1;
+	var c_4 = Math.floor(Math.random() * 3)+2;
+	var d_4 = Math.floor(Math.random() * 5)+2;
 }
 
 const e_4 = a_4 * x_4 + b_4 * ans4;
