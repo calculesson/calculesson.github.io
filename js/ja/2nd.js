@@ -334,10 +334,10 @@ var b_3 = 0;
 var c_3 = 0;
 
 while (a_3 == c_3 || a_3 == d_3 || c_3 == d_3 || Math.abs(b_3) < 2) {
-	var a_3 = Math.floor(Math.random() * 8)+2;
-	var b_3 = (Math.floor(Math.random() * 8)+2)*-1;
-	var c_3 = Math.floor(Math.random() * 8)+2;
-	var d_3 = Math.floor(Math.random() * 8)+2;
+	var a_3 = Math.floor(Math.random() * 3)+2;
+	var b_3 = (Math.floor(Math.random() * 5)+2)*-1;
+	var c_3 = Math.floor(Math.random() * 3)+2;
+	var d_3 = Math.floor(Math.random() * 5)+2;
 }
 
 const e_3 = a_3 * ans3 + b_3 * y_3;
@@ -345,7 +345,6 @@ const f_3 = c_3 * ans3 + d_3 * y_3;
 
 //問題文の作成3
 const q3 = a_3+"<span class='literal'>x</span>"+b_3+"<span class='literal'>y</span>="+e_3+",　<br>"+c_3+"<span class='literal'>x</span>+"+d_3+"<span class='literal'>y</span>="+f_3+"　<br><span class='literal'>x</span>に当てはまる数を答えなさい";
-
 
 //問題4
 var x_4 = 0;
