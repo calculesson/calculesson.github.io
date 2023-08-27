@@ -287,6 +287,7 @@ if (a_2 < b_2) {
 
 var a_3 = 0;
 var b_3 = 0;
+while(Math.abs(a_3) == Math.abs(b_3) || b_3 == 0) {
 	var a_3 = (Math.floor(Math.random() * 10)+1)*-1;
 	var b_3 = (Math.floor(Math.random() * 21)-10);
 }
