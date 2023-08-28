@@ -267,7 +267,7 @@ function draw(src) {
 //問題1
 var a_1 = 0;
 var b_1 = 0;
-while (a_1 == b_1) {
+while (a_1 == b_1 || Number.isInteger(a_1/2) || Number.isInteger(b_1/3)) {
 	var a_1 = Math.floor(Math.random() * 8)+2;
 	var b_1 = Math.floor(Math.random() * 8)+2;
 }
@@ -326,53 +326,48 @@ if (a_2 < 0 && b_2 < 0) {
 
 
 //問題3
+var a_3 = 0;
+var b_3 = 0;
 
-var a_3 = Math.floor(Math.random() * 1)+2; //因数分解後のxの係数1
-var b_3 = Math.floor(Math.random() * 1)+3; //因数分解後のxの係数2
-
-var c_3 = 0;
-var d_3 = 0;
-
-while(Math.abs(c_3)== Math.abs(d_3) || Math.abs(c_3) < 2 || Math.abs(d_3) < 2 || (a_3 * d_3) + (b_3 * c_3) == 0 || Number.isInteger(c_3 / a_3) || Number.isInteger(d_3 / 2) || Number.isInteger(d_3 / 3)) {
-	var c_3= Math.floor(Math.random() * 21)-10;
-	var d_3 = Math.floor(Math.random() * 21)-10;
+while(Math.abs(a_3)>= Math.abs(b_3) || Math.abs(a_3) < 2 || Math.abs(b_3) < 2 || a_3 == a_2 || a_3 == b_2) {
+	var a_3= Math.floor(Math.random() * 21)-10;
+	var b_3 = Math.floor(Math.random() * 21)-10;
 }
 
-var sign_3 = (a_3 * d_3) + (b_3 * c_3);
-if (sign_3 == 1) {
-	sign_3 = "+"; //xの係数が1
-} else if (sign_3 == -1) {
-	sign_3 = "-"; //xの係数が-1
-} else if (sign_3 > 0) {
-	sign_3 = "+"+sign_3; //xの係数が正
+var c_3 = a_3 + b_3;
+if (c_3 == 1) {
+	c_3 = "+"; //xの係数が1
+} else if (c_3 == -1) {
+	c_3 = "-"; //xの係数が-1
+} else if (c_3 > 0) {
+	c_3 = "+"+c_3; //xの係数が正
 } else {}
 
 //問題文の作成3
-if (c_3 * d_3 < 0) {
-	var q3 = "次の式を因数分解しなさい。<br>"+ (a_3 * b_3) +"<span class='literal'>x<sup>2</sup></span>"+sign_3+"<span class='literal'>x</span>"+ (c_3 * d_3); //定数項が負
+if (a_3 * b_3 < 0) {
+	var q3 = "次の式を因数分解しなさい。<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>"+ (a_3 * b_3); //定数項が負
 } else {
-	var q3 = "次の式を因数分解しなさい。<br>"+ (a_3 * b_3) +"<span class='literal'>x<sup>2</sup></span>"+sign_3+"<span class='literal'>x</span>+"+ (c_3 * d_3); //定数項が正
+	var q3 = "次の式を因数分解しなさい。<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>+"+ (a_3 * b_3); //定数項が正
 }
 
 //問題3の答え
-if (c_3 < 0 && d_3 < 0) {
+if (a_3 < 0 && b_3 < 0) {
 	//a, b = -, -
-	ans3_1 = "("+a_3+"x"+c_3+")("+b_3+"x"+d_3+")";
-	ans3_2 = "("+b_3+"x"+d_3+")("+a_3+"x"+c_3+")"; //bとdが逆
-} else if (c_3 > 0 && d_3 < 0) {
+	ans3_1 = "(x"+a_3+")(x"+b_3+")";
+	ans3_2 = "(x"+b_3+")(x"+a_3+")"; //aとbが逆
+} else if (a_3 > 0 && b_3 < 0) {
 	//a, b = +, -
-	ans3_1 = "("+a_3+"x+"+c_3+")("+b_3+"x"+d_3+")";
-	ans3_2 = "("+b_3+"x"+d_3+")("+a_3+"x+"+c_3+")"; //bとdが逆
-} else if (c_3 < 0 && d_3 > 0) {
+	ans3_1 = "(x+"+a_3+")(x"+b_3+")";
+	ans3_2 = "(x"+b_3+")(x+"+a_3+")"; //aとbが逆
+} else if (a_3 < 0 && b_3 > 0) {
 	//a, b = -, +
-	ans3_1 = "("+a_3+"x"+c_3+")("+b_3+"x+"+d_3+")";
-	ans3_2 = "("+b_3+"x+"+d_3+")("+a_3+"x"+c_3+")"; //bとdが逆
+	ans3_1 = "(x"+a_3+")(x+"+b_3+")";
+	ans3_2 = "(x+"+b_3+")(x"+a_3+")"; //aとbが逆
 } else {
 	//a, b = +, +
-	ans3_1 = "("+a_3+"x+"+c_3+")("+b_3+"x+"+d_3+")";
-	ans3_2 = "("+b_3+"x+"+d_3+")("+a_3+"x+"+c_3+")"; //bとdが逆
+	ans3_1 = "(x+"+a_3+")(x+"+b_3+")";
+	ans3_2 = "(x+"+b_3+")(x+"+a_3+")"; //aとbが逆
 }
-
 
 //問題4
 var a_4 = Math.floor(Math.random() * 6) +11;
@@ -447,7 +442,7 @@ if (a_7 * b_7 < 0) {
 }
 
 //問題7の答え
-var ans7 = a_7+b_7;
+var ans7 = (a_7+b_7)*-1;
 
 
 //問題8
@@ -491,13 +486,12 @@ while (x1_9 >= x2_9) {
 }
 
 //問題文の作成9
-var q9 = "関数<span class='literal'>y=ax<sup>2</sup></span> について、<br><span class='literal'>x</span>の値が "+ x1_9 + "から " + x2_9 + "まで増加するときの変化の割合が" + ans9 * (x2_9 ** 2 - x1_9 ** 2) + "だった。<br>このとき、<span class='literal'>a</span>の値を求めよ";
-
+var q9 = "関数<span class='literal'>y=ax<sup>2</sup></span> について、<br><span class='literal'>x</span>の値が "+ x1_9 + "から " + x2_9 + "まで増加するときの変化の割合が" + ans9 * (x2_9 ** 2 - x1_9 ** 2) / (x2_9 - x1_9) + "だった。<br>このとき、<span class='literal'>a</span>の値を求めよ";
 
 //問題10
 var a_10 = 0;
 while (Math.abs(a_10) <= 1) {
-	var a_10 = Math.floor(Math.random() * 13 -6) / 2;
+	var a_10 = Math.floor(Math.random() * 5 -2);
 }
 
 var b_10 = 0;
@@ -546,7 +540,7 @@ const quiz = [
 	},
 	{
 	  question: q7,
-	  answer: b_7
+	  answer: ans7
 	},
 	{
 	  question: q8,
@@ -668,6 +662,41 @@ var next = function() {
 				var cell = 1;
 			}
 
+			const ans_detail = document.getElementsByClassName("explanation");
+
+			ans_detail[0].innerHTML = "A<sup>2</sup>-B<sup>2</sup>は、(A+B)(A-B)の形に因数分解することができます。"+ a_1**2 +"は&plusmn;"+ a_1 +"の2乗、"+ b_1**2 +"は&plusmn;"+ b_1 +"の2乗なので、"+ ans1_1 +"が答えになります。";
+
+			ans_detail[1].innerHTML = "和が<span class='literal'>x</span>の係数、積が定数項になる二数を考えます。今回の場合、<span class='literal'>x</span>の係数が"+ (a_2+b_2) +"、定数項が"+ a_2 * b_2 +"なので、二数の組み合わせは"+ a_2 +"、"+ b_2 +"となります。よって答えは"+ ans2_1 +"です。";
+
+			ans_detail[2].innerHTML = "問題2と同じ形式の問題です。詳しくは、問題2の解説をご覧ください。";
+
+			ans_detail[3].innerHTML = "2乗して<span class='literal'>a</span>になる数を、<span class='literal'>a</span>の平方根と呼びます。<br>"+ a_4**2/100 +"="+ a_4**2 +"/100="+ a_4 +"<sup>2</sup>/10<sup>2</sup><br>となるので、答えは"+ ans4_1 +"です。";
+
+			ans_detail[4].innerHTML = "AとBを2乗して考えてみましょう。<br>(<span class='literal'>x</span>&radic;<span class='literal'>y</span>)<sup>2</sup>=<span class='literal'>x</span><sup>2</sup>&times;<span class='literal'>y</span><br>となるので、A("+b_5+"&radic;"+a_5+")の2乗は"+ b_5**2*a_5 +"、B("+c_5+")の2乗は"+ c_5**2 +"です。また、負の数の大きさを比べるときは、絶対値が大きいほど数は小さくなる、ということを忘れないようにしましょう。よって答えは"+ ans5 +"です。";
+
+			ans_detail[5].innerHTML = "他の問題よりも難易度の高い応用問題です。<span class='literal'>a<sup>2</sup>+b<sup>2</sup></span>を工夫して計算する方法を考えてみましょう。<br>根号を含む多項式を2乗して和を求めるのは大変です。そこで、2乗したり打ち消しあったりして、計算を楽にしていきます。<br><span class='literal'>a<sup>2</sup>+2ab+b<sup>2</sup>=(a+b)<sup>2</sup></span>を利用すると、<br><span class='literal'>x<sup>2</sup>+y<sup>2</sup>=(x+y)<sup>2</sup> -2xy</span>と表せます。<br>ここに<span class='literal'>x=</span>"+a_6+"+&radic;"+b_6+", <span class='literal'>y=</span>"+a_6+"-&radic;"+b_6+"を代入します。<br><span class='literal'>(x+y)<sup>2</sup> -2xy = ("+a_6+"+&radic;"+b_6+"+"+a_6+"-&radic;"+b_6+")<sup>2</sup> -2("+a_6+"+&radic;"+b_6+")("+a_6+"-&radic;"+b_6+"</span>)<br>すると、<span class='literal'>(x+y)<sup>2</sup></span>の部分は&radic;"+b_6+"が打ち消しあい、<span class='literal'>-2x</span>の部分では、A<sup>2</sup>-B<sup>2</sup>=(A+B)(A-B)の公式を使える形になっています。<br>(2&times;"+a_6+")<sup>2</sup>-2("+a_6+"<sup>2</sup>-"+b_6+")となり、計算すると"+ ans6 +"が答えになります。";
+
+			if (a_7 > 0) {
+				ans_detail[6].innerHTML = "解の一つである"+ a_7 +"を<span class='literal'>x</span>に代入します。<br><span class='literal'>x<sup>2</sup>+ax</span>+" + a_7 *　b_7 + "=0<br><span class='literal'>"+ a_7 +"<sup>2</sup>+"+ a_7 +"a</span>+" + a_7 *　b_7 + "=0<br>これを解くと、aの値が"+ ans7 +"として求められます。";
+			} else {
+				ans_detail[6].innerHTML = "解の一つである"+ a_7 +"を<span class='literal'>x</span>に代入します。<br><span class='literal'>x<sup>2</sup>+ax</span>+" + a_7 *　b_7 + "=0<br><span class='literal'>("+ a_7 +")<sup>2</sup>&times;("+ a_7 +"a)</span>+" + a_7 *　b_7 + "=0<br>これを解くと、aの値が"+ ans7 +"として求められます。";
+			}
+
+			if (type_8 < 1) {
+				ans_detail[7].innerHTML = "ある正の数を<span class='literal'>x</span>とおいて、問題文から方程式を作ります。<br><span class='literal'>x<sup>2</sup>+"+ c_8 +""+ a_8 * b_8 +" = 2x+"+ c_8 +"<br>x<sup>2</sup>-2x"+ a_8 * b_8 +"=0</span><br>これを解くと、<span class='literal'>x</span>="+ ans8 +", "+ b_8*-1 +"が求められます。問題文には「ある正の数」とあるので、答えは"+ ans8 +"です。";
+			} else {
+				ans_detail[7].innerHTML = "ある正の数を<span class='literal'>x</span>とおいて、問題文から方程式を作ります。<br><span class='literal'>x<sup>2</sup>-"+ c_8 +""+ a_8 * b_8 +" = 2x-"+ c_8 +"<br>x<sup>2</sup>-2x"+ a_8 * b_8 +"=0</span><br>これを解くと、<span class='literal'>x</span>="+ ans8 +", "+ b_8*-1 +"が求められます。問題文には「ある正の数」とあるので、答えは"+ ans8 +"です。";
+			}
+
+			ans_detail[8].innerHTML = "<span class='literal'>x</span>の増加量は、"+ x2_9 +"-"+ x1_9 +"="+ (x2_9-x1_9) +"なので、<br>("+ x2_9 +"<sup>2</sup><span class='literal'>a</span>-"+ x1_9 +"<sup>2</sup><span class='literal'>a</span>) &divide; "+ (x2_9-x1_9) +"="+ ans9 * (x2_9 ** 2 - x1_9 ** 2) / (x2_9-x1_9) +"<br>これを解くと、<span class='literal'>a</span>の値は"+ ans9 +"になります。";
+
+			if (b_10 > 0) {
+				ans_detail[9].innerHTML = "<span class='literal'>y=ax<sup>2</sup></span>に<span class='literal'>x</span>="+ b_10 +"と、<span class='literal'>y</span>="+ a_10 * b_10 ** 2 +"を代入します。<br>"+ a_10 * b_10 ** 2 +"="+ b_10 +"<sup>2</sup><span class='literal'>a</span><br>これを解くと、<span class='literal'>a</span>="+ a_10 +"が求められます。そして、<span class='literal'>y=ax<sup>2</sup></span>に<span class='literal'>a</span>="+ a_10 +"と、<span class='literal'>x</span>="+ c_10 +"を代入して計算すると、<span class='literal'>y</span>="+ ans10 +"が求められます。";
+			} else {
+				ans_detail[9].innerHTML = "<span class='literal'>y=ax<sup>2</sup></span>に<span class='literal'>x</span>="+ b_10 +"と、<span class='literal'>y</span>="+ a_10 * b_10 ** 2 +"を代入します。<br>"+ a_10 * b_10 ** 2 +"=("+ b_10 +")<sup>2</sup><span class='literal'>a</span><br>これを解くと、<span class='literal'>a</span>="+ a_10 +"が求められます。そして、<span class='literal'>y=ax<sup>2</sup></span>に<span class='literal'>a</span>="+ a_10 +"と、<span class='literal'>x</span>="+ c_10 +"を代入して計算すると、<span class='literal'>y</span>="+ ans10 +"が求められます。";
+
+			}
+
 			result.classList.add ("open"); //結果を表示
 
 
@@ -684,5 +713,16 @@ var response = document.getElementsByClassName("response")[0];
 response.addEventListener("keydown", (event) => {
 	if (event.key === "Enter") {
 		next();
+	}
+});
+
+$(".ans_detail").on("click", function() {
+	var findElm = $(this).next(".explanation");
+	$(findElm).slideToggle();
+	if($(this).hasClass("close")){
+		$(this).removeClass("close");
+	}
+	else{
+		$(this).addClass("close");
 	}
 });
