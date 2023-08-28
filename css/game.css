@@ -240,7 +240,7 @@ h1 {
 }
 
 .canvasContainer {
-	width: 80vw;
+	width: 90vw;
 	height: 400px;
 }
 
@@ -323,4 +323,64 @@ textarea {
 	background: #e0d1c2;
 	border-top: solid 4px #65564d;
 	border-bottom: solid 4px #65564d;
+}
+
+.contents {
+	list-style: none;
+	width: 90%;
+	max-width: 900px;
+	margin:0 auto;
+}
+
+.contents li {
+	margin: 10px 0;
+}
+
+.contents section {
+	border: 1px solid #ccc;
+}
+
+
+.ans_detail {
+	position: relative;
+	cursor: pointer;
+	padding: 0 45px;
+	transition: all 0.5s ease;
+	font-weight: bold;
+}
+
+.ans_detail::before,
+.ans_detail::after{
+	position: absolute;
+	content:'';
+	height: 2px;
+	width: 15px;
+	background-color: #716056;   
+}
+
+.ans_detail::before{
+	top:50%;
+	left: 15px;
+	transform: rotate(0deg);
+}
+
+.ans_detail::after{
+	top:50%;
+	left: 15px;
+	transform: rotate(90deg);
+}
+
+.ans_detail.close::before{
+	transform: rotate(45deg);
+}
+
+.ans_detail.close::after{
+	transform: rotate(-45deg);
+}
+
+.explanation {
+	display: none;
+	margin: 0;
+	padding: 0 3%;
+	text-align: left;
 }
