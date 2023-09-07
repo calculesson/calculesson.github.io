@@ -324,53 +324,47 @@ if (a_2 < 0 && b_2 < 0) {
 	ans2_2 = "(x+"+b_2+")(x+"+a_2+")"; //aとbが逆
 }
 
+var a_3 = 0;
+var b_3 = 0;
 
-//問題3
-
-var a_3 = Math.floor(Math.random() * 1)+2; //因数分解後のxの係数1
-var b_3 = Math.floor(Math.random() * 1)+3; //因数分解後のxの係数2
-
-var c_3 = 0;
-var d_3 = 0;
-
-while(Math.abs(c_3)== Math.abs(d_3) || Math.abs(c_3) < 2 || Math.abs(d_3) < 2 || (a_3 * d_3) + (b_3 * c_3) == 0 || Number.isInteger(c_3 / a_3) || Number.isInteger(d_3 / 2) || Number.isInteger(d_3 / 3)) {
-	var c_3= Math.floor(Math.random() * 21)-10;
-	var d_3 = Math.floor(Math.random() * 21)-10;
+while(Math.abs(a_3)>= Math.abs(b_3) || Math.abs(a_3) < 2 || Math.abs(b_3) < 2 || a_3 == a_2 || a_3 == b_2) {
+	var a_3= Math.floor(Math.random() * 21)-10;
+	var b_3 = Math.floor(Math.random() * 21)-10;
 }
 
-var sign_3 = (a_3 * d_3) + (b_3 * c_3);
-if (sign_3 == 1) {
-	sign_3 = "+"; //xの係数が1
-} else if (sign_3 == -1) {
-	sign_3 = "-"; //xの係数が-1
-} else if (sign_3 > 0) {
-	sign_3 = "+"+sign_3; //xの係数が正
+var c_3 = a_3 + b_3;
+if (c_3 == 1) {
+	c_3 = "+"; //xの係数が1
+} else if (c_3 == -1) {
+	c_3 = "-"; //xの係数が-1
+} else if (c_3 > 0) {
+	c_3 = "+"+c_3; //xの係数が正
 } else {}
 
 //問題文の作成3
-if (c_3 * d_3 < 0) {
-	var q3 = "Factorize the next expression.<br>"+ (a_3 * b_3) +"<span class='literal'>x<sup>2</sup></span>"+sign_3+"<span class='literal'>x</span>"+ (c_3 * d_3); //定数項が負
+if (a_3 * b_3 < 0) {
+	var q3 = "Factorize the next formula.<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>"+ (a_3 * b_3); //定数項が負
 } else {
-	var q3 = "Factorize the next expression.<br>"+ (a_3 * b_3) +"<span class='literal'>x<sup>2</sup></span>"+sign_3+"<span class='literal'>x</span>+"+ (c_3 * d_3); //定数項が正
+	var q3 = "Factorize the next formula.<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>+"+ (a_3 * b_3); //定数項が正
 }
 
 //問題3の答え
-if (c_3 < 0 && d_3 < 0) {
+if (a_3 < 0 && b_3 < 0) {
 	//a, b = -, -
-	ans3_1 = "("+a_3+"x"+c_3+")("+b_3+"x"+d_3+")";
-	ans3_2 = "("+b_3+"x"+d_3+")("+a_3+"x"+c_3+")"; //bとdが逆
-} else if (c_3 > 0 && d_3 < 0) {
+	ans3_1 = "(x"+a_3+")(x"+b_3+")";
+	ans3_2 = "(x"+b_3+")(x"+a_3+")"; //aとbが逆
+} else if (a_3 > 0 && b_3 < 0) {
 	//a, b = +, -
-	ans3_1 = "("+a_3+"x+"+c_3+")("+b_3+"x"+d_3+")";
-	ans3_2 = "("+b_3+"x"+d_3+")("+a_3+"x+"+c_3+")"; //bとdが逆
-} else if (c_3 < 0 && d_3 > 0) {
+	ans3_1 = "(x+"+a_3+")(x"+b_3+")";
+	ans3_2 = "(x"+b_3+")(x+"+a_3+")"; //aとbが逆
+} else if (a_3 < 0 && b_3 > 0) {
 	//a, b = -, +
-	ans3_1 = "("+a_3+"x"+c_3+")("+b_3+"x+"+d_3+")";
-	ans3_2 = "("+b_3+"x+"+d_3+")("+a_3+"x"+c_3+")"; //bとdが逆
+	ans3_1 = "(x"+a_3+")(x+"+b_3+")";
+	ans3_2 = "(x+"+b_3+")(x"+a_3+")"; //aとbが逆
 } else {
 	//a, b = +, +
-	ans3_1 = "("+a_3+"x+"+c_3+")("+b_3+"x+"+d_3+")";
-	ans3_2 = "("+b_3+"x+"+d_3+")("+a_3+"x+"+c_3+")"; //bとdが逆
+	ans3_1 = "(x+"+a_3+")(x+"+b_3+")";
+	ans3_2 = "(x+"+b_3+")(x+"+a_3+")"; //aとbが逆
 }
 
 
