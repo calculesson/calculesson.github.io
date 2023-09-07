@@ -7,16 +7,7 @@
 <meta name="viewport" content="width=device-width">
 <link rel="stylesheet" href="../../css/game.css" type="text/css">
 <link rel="icon" href="../../pic/icon.svg">
-<title>3rt grade - CalcuLesson</title>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-NDK7Y8R3G4"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-NDK7Y8R3G4');
-</script>
+<title>3rd grade - CalcuLesson</title>
 </head>
 
 <body>
@@ -44,8 +35,8 @@
 		</ul>
 		<div id="hand" class="notes">
 			Handwriting Notes<br>
-			<img src="../../pic/undo.svg" onclick="prevCanvas()" alt="undo">
-			<img src="../../pic/redo.svg" onclick="nextCanvas()" alt="redo">
+			<img src="../../pic/undo.svg" onclick="prevCanvas()" alt="redo">
+			<img src="../../pic/redo.svg" onclick="nextCanvas()" alt="undo">
 			<img src="../../pic/pen.svg" id="pen" onclick="draw_pen()" alt="pen">
 			<img src="../../pic/eraser.svg" id="eraser" onclick="erase()" alt="eraser">
 			<div class="canvasContainer">
@@ -53,7 +44,7 @@
 			</div>
 			<div style="padding:10px">
 				<div class="button" id="reset">
-					<a>delete handwriting notes</a>
+					<a>reset handwriting notes</a>
 				</div>
 			</div>
 		</div>
@@ -61,7 +52,7 @@
 			Typing Notes
 			<textarea id="note_type"></textarea>
 		</div>
-
+	</div>
 	<div class="result">
 		<h1>RESULT</h1>
 		<div class="total"></div>
