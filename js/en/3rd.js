@@ -267,7 +267,7 @@ function draw(src) {
 //問題1
 var a_1 = 0;
 var b_1 = 0;
-while (a_1 == b_1) {
+while (a_1 == b_1 || Number.isInteger(a_1/2) || Number.isInteger(b_1/3)) {
 	var a_1 = Math.floor(Math.random() * 8)+2;
 	var b_1 = Math.floor(Math.random() * 8)+2;
 }
@@ -324,6 +324,8 @@ if (a_2 < 0 && b_2 < 0) {
 	ans2_2 = "(x+"+b_2+")(x+"+a_2+")"; //aとbが逆
 }
 
+
+//問題3
 var a_3 = 0;
 var b_3 = 0;
 
@@ -343,9 +345,9 @@ if (c_3 == 1) {
 
 //問題文の作成3
 if (a_3 * b_3 < 0) {
-	var q3 = "Factorize the next formula.<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>"+ (a_3 * b_3); //定数項が負
+	var q3 = "Factorize the next expression. <br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>"+ (a_3 * b_3); //定数項が負
 } else {
-	var q3 = "Factorize the next formula.<br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>+"+ (a_3 * b_3); //定数項が正
+	var q3 = "Factorize the next expression. <br><span class='literal'>x<sup>2</sup></span>"+c_3+"<span class='literal'>x</span>+"+ (a_3 * b_3); //定数項が正
 }
 
 //問題3の答え
@@ -441,7 +443,7 @@ if (a_7 * b_7 < 0) {
 }
 
 //問題7の答え
-var ans7 = a_7+b_7;
+var ans7 = b_7 *-1;
 
 
 //問題8
@@ -540,7 +542,7 @@ const quiz = [
 	},
 	{
 	  question: q7,
-	  answer: b_7
+	  answer: ans7
 	},
 	{
 	  question: q8,
@@ -557,19 +559,19 @@ const quiz = [
 ];
 
 //変数
-var right = 0; //正解数
-var count = 0; //ボタン押した回数
-const quiz_num = quiz.length; //問題数
-const correct = document.querySelector(".correct"); //正解
-const incorrect = document.querySelector(".incorrect"); //不正解
-var t_per_q = []; //一問あたりの時間
-const box = document.querySelector(".box"); //問題全体
-const result = document.querySelector(".result"); //結果
-var ur_ans = []; //あなたの答え
-var rw = []; //正否
-var score_check = 0; // 点数計算
-var allotments = [1, 2, 3, 1, 1, 3, 2, 3, 2, 2]; //配点
-var score = 0; //点数
+var right = 0,
+    count = 0,
+    t_per_q = [],
+    ur_ans = [],
+    rw = [],
+    score_check = 0,
+    allotments = [2, 3, 4, 2, 2, 5, 3, 4, 3, 3],
+    score = 0;
+const quiz_num = quiz.length,
+      correct = document.querySelector(".correct"),
+      incorrect = document.querySelector(".incorrect"),
+      box = document.querySelector(".box"),
+      result = document.querySelector(".result");
 
 //問題の表示
 document.getElementsByClassName("question")[0].innerHTML = quiz[count].question; //問題の表示
@@ -581,9 +583,9 @@ var start = Date.now(); //開始時間
 var next = function() {
 	ur_ans.push(document.getElementsByClassName("response")[0].value); //あなたの答えの記録
 	document.getElementsByClassName("response")[0].value = "";
+	draw_pen();
 	document.getElementById("note_type").value = "";
 	ctx.clearRect(0, 0, ctx.canvas.clientWidth, ctx.canvas.clientHeight);
-	draw_pen();
 	var finish = Date.now(); //終了時間
 	t_per_q.push(Math.floor((finish-start)/100)); //一問あたりの時間
 	if (ur_ans[count] == quiz[count].answer || ur_ans[count] === quiz[count].answer2) { //回答 == 答え
@@ -644,7 +646,7 @@ var next = function() {
 			}
 
 
-			document.getElementsByClassName("total")[0].innerHTML = "<h2>Score: "+ score +"</h2><br>Number of Correct: "+right+"<br>Time Taken: "+time;
+			document.getElementsByClassName("total")[0].innerHTML = "<h2>Score　"+ score +"</h2><br>Number of Correct："+right+"<br>Date & Time："+time;
 
 			const table = document.getElementsByClassName("qa_list")[0]; //結果表の取得
 			var row = 0; //行
